@@ -1,0 +1,116 @@
+﻿@model IEnumerable<SportCar.BLL.Models.Usuario>
+@using SportCar.BLL.Models;
+
+@{
+    ViewData["Title"] = "Aprovar Usuarios";
+}
+
+<div class="tabelas">
+    <div class="collection">
+        <div class="collectio-header">
+            <div class="col-md-3 s10">
+                <h6> Moradores Cadastrados</h6>
+            </div>
+            <div class="col-md-3 s10">
+
+            </div>
+        </div>
+
+        <div class="collectio-header">
+
+            <table class="table table-hover table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>
+                            Nome
+                        </th>
+                        <th>
+                            CPF
+                        </th>
+                        <th>
+                            Email
+                        </th>
+                        <th>
+                            Telefone
+                        </th>
+                        <th>
+                            Status
+                        </th>
+                        <th>
+
+                        </th>
+                        <th>
+
+                        </th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.UserName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CPF)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Email)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PhoneNumber)
+                            </td>
+                            @if (item.Status == StatusConta.Analizando)
+                            {
+                                <td>
+                                    <span id="@item.Id" class="font-weight-bold bg-warning text-dark p-2 rounded">@Html.DisplayFor(modelItem => item.Status)</span>
+                                </td>
+                                <td class="@item.Id">
+                                </td>
+
+                                <td>
+                                    <a class="text-success mr-1" style="font-size: 20pt; cursor: pointer;" onclick="AprovarUsuario('@item.Id', '@item.UserName')"><i class="fa fa-thumbs-o-up"></i></a>
+                                    <a class="text-danger" style="font-size: 20pt; cursor: pointer;" onclick="ReprovarUsuario('@item.Id', '@item.UserName')"><i class="fa fa-thumbs-o-down"></i></a>
+
+                                </td>
+                            }
+                            else if (item.Status == StatusConta.Aprovado)
+                            {
+                                <td>
+                                    <span id="@item.Id" class="font-weight-bold bg-success text-white p-2 rounded">@Html.DisplayFor(modelItem => item.Status)</span>
+                                </td>
+                                <td class="@item.Id">
+                                    <a class="text-primary" style="font-size:20pt;" asp-controller="Usuarios" asp-action="GerenciarUsuarios" asp-route-id="@item.Id" asp-route-name="@item.UserName"><i class="fa fa-group"></i></a>
+                                </td>
+                                <td>
+                                    <a class="text-success mr-1" style="font-size: 20pt; cursor: pointer;" onclick="AprovarUsuario('@item.Id', '@item.UserName')"><i class="fa fa-thumbs-o-up"></i></a>
+                                    <a class="text-danger" style="font-size: 20pt; cursor: pointer;" onclick="ReprovarUsuario('@item.Id', '@item.UserName')"><i class="fa fa-thumbs-o-down"></i></a>
+
+                                </td>
+                            }
+                            else
+                            {
+                                <td>
+                                    <span id="@item.Id" class="font-weight-bold bg-danger text-white p-2 rounded">@Html.DisplayFor(modelItem => item.Status)</span>
+                                </td>
+                                <td class="@item.Id" style="display: none;">
+                                </td>
+                                <td>
+                                    <a class="text-success mr-1" style="font-size:20pt; cursor:pointer;" onclick="AprovarUsuario('@item.Id', '@item.UserName')"><i class="fa fa-thumbs-o-up"></i></a>
+                                    <a class="text-danger" style="font-size: 20pt; cursor: pointer;" onclick="ReprovarUsuario('@item.Id', '@item.UserName')"><i class="fa fa-thumbs-o-down"></i></a>
+
+                                </td>
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+
+
+        </div>
+    </div>
+</div>
+
+

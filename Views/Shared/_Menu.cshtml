@@ -1,0 +1,102 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@using SportCar.BLL.Models;
+@inject SignInManager<Usuario> SignInManager;
+
+
+@if (SignInManager.IsSignedIn(User))
+{
+        <div class="col-sm-2 col-xs-6 sidebar pl-0">
+            <div class="inner-sidebar mr-3">
+                <div class="avatar text-center">
+                    <img src="~/imagens/img/client-img4.png" alt="" class="rounded-circle" />
+                    <p><strong>Leonardo Alves</strong></p>
+                    <span class="text-primary small"><strong>Administrador</strong></span>
+                </div>
+                <div class="sidebar-menu-container">
+                    <ul class="sidebar-menu mt-4 mb-4">
+                        <li class="parent">
+                            <a href="#" onclick="toggle_menu('dashboard'); return false" class="">
+                                <i class="fa fa-dashboard mr-3"> </i>
+                                <span class="none">Dashboard <i class="fa fa-angle-down pull-right align-bottom"></i></span>
+                            </a>
+                            <ul class="children" id="dashboard">
+                                <li class="child"><a href="#" class="ml-4"><i class="fa fa-angle-right mr-2"></i> Pagina Inicial</a></li>
+                            </ul>
+                        </li>
+                        <li class="parent">
+                            <a href="#" onclick="toggle_menu('editors'); return false" class="">
+                                <i class="fa fa-pencil-square-o mr-3"></i>
+                                <span class="none">Usuario<i class="fa fa-angle-down pull-right align-bottom"></i></span>
+                            </a>
+                            <ul class="children" id="editors">
+                                <li class="child"><a href="ckeditor-classic.html" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Editar Usuario</a></li>
+                                <li class="child"><a href="ckeditor-inline.html" class="ml-4"><i class="fa fa-angle-right mr-2"></i> Editar Clientes</a></li>
+                                <li class="child"><a href="ckeditor-document.html" class="ml-4"><i class="fa fa-angle-right mr-2"></i> Editar Colaborador</a></li>
+                            </ul>
+                        </li>
+                        <li class="parent">
+                            <a href="#" onclick="toggle_menu('tables'); return false" class="">
+                                <i class="fa fa-pencil-square mr-3"></i>
+                                <span class="none">Estoque<i class="fa fa-angle-down pull-right align-bottom"></i></span>
+                            </a>
+                            <ul class="children" id="tables">
+                                <li class="child"><a href="basic-tables.html" class="ml-4"><i class="fa fa-angle-right mr-2"></i> Basic Tables</a></li>
+                                <li class="child"><a href="datatable.html" class="ml-4"><i class="fa fa-angle-right mr-2"></i> Datatables</a></li>
+                                <li class="child"><a href="jsgrid-table.html" class="ml-4"><i class="fa fa-angle-right mr-2"></i> JSGrid Tables</a></li>
+                            </ul>
+                        </li>
+                        <li class="parent">
+                            <a href="#" onclick="toggle_menu('charts'); return false" class="">
+                                <i class="fa fa-pie-chart mr-3"></i>
+                                <span class="none">Relatórios<i class="fa fa-angle-down pull-right align-bottom"></i></span>
+                            </a>
+                            <ul class="children" id="charts">
+                                <li class="child"><a href="chart.html" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Relatório Geral</a></li>
+                            </ul>
+                        </li>
+                        <li class="parent">
+                            <a href="#" class="">
+                                <i class="fa fa-toggle-on mr-3"></i>
+                                <span class="none">Configurações</span>
+                            </a>
+                        </li>
+                        <li class="parent">
+                            <a href="#" onclick="toggle_menu('ecommerce'); return false" class="">
+                                <i class="fa fa-shopping-cart mr-3"></i>
+                                <span class="none">Vendas <i class="fa fa-angle-down pull-right align-bottom"></i></span>
+                            </a>
+                            <ul class="children" id="ecommerce">
+                                <li class="child"><a href="#" class="ml-4"><i class="fa fa-angle-right mr-2"></i> Relatorio de Vendas</a></li>
+                                <li class="child"><a href="#" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Orçamento</a></li>
+                            </ul>
+                        </li>
+                        <li class="parent">
+                            <a href="#" onclick="toggle_menu('maps'); return false" class="">
+                                <i class="fa fa-money mr-3"></i>
+                                <span class="none">Financeiro <i class="fa fa-angle-down pull-right align-bottom"></i></span>
+                            </a>
+                            <ul class="children" id="maps">
+                                <li class="child"><a href="jvector-maps.html" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Contas a Pagar</a></li>
+                                <li class="child"><a href="google-maps.html" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Contas a Receber</a></li>
+                            </ul>
+                        </li>
+                        <li class="parent">
+                            <a href="#" onclick="toggle_menu('pages'); return false" class="">
+                                <i class="fa fa-file mr-3"></i>
+                                <span class="none">Paginas <i class="fa fa-angle-down pull-right align-bottom"></i></span>
+                            </a>
+                            <ul class="children" id="pages">
+                                <li class="child"><a href="email-inbox.html" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Opções Landing Page</a></li>
+                            </ul>
+                        </li>
+                        <li class="parent">
+                            <a href="fullcalendar.html" class="">
+                                <i class="fa fa-calendar-o mr-3"> </i>
+                                <span class="none">Lembretes</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+}

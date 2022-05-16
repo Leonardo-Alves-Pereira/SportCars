@@ -1,0 +1,46 @@
+﻿@model SportCar.ViewModels.LoginViewModel
+@{
+    ViewData["title"] = "Login do Sistema";
+}
+
+<div class="container-fluid login-wrapper">
+    <div class="login-box">
+        <h1 class="text-center mb-5">
+            <a href="#" class="text-secondary logo"><img src="~/imagens/img/LEONTEK-300x80.png" alt="Alternate Text" style="width:250px;" /></a>
+        </h1>
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-12 login-box-info">
+                <h3 class="mb-4">Faça Login</h3>
+                <p class="mb-4">Experiemente a ferramente que vai revolucionar a forma de você <br /> gerenciar seu negócio.</p>
+                <p class="text-center"><a asp-controller="Usuarios" asp-action="Registro" class="btn btn-light">Registrar</a></p>
+            </div>
+            <div class="col-md-6 col-sm-6 col-12 login-box-form p-4">
+                <h3 class="mb-2">Login</h3>
+                <small class="text-muted bc-description">Faça login com suas informações!</small>
+                <form asp-action="Login">
+                    <div class="" asp-validation-summary="ModelOnly"></div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i></span>
+                        </div>
+                        <input input autocomplete="off" type="email" asp-for="Email" id="Email" class="form-control mt-0" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-lock"></i></span>
+                        </div>
+                        <input input autocomplete="off" type="password" asp-for="Senha" id="Senha" class="form-control mt-0 validate" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-theme btn-block p-2 mb-1">Login</button>
+                        <a href="#">
+                            <small class="text-theme"><strong>Esqueceu a Senha?</strong></small>
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

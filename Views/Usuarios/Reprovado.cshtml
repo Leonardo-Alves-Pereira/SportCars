@@ -1,0 +1,33 @@
+﻿@model string
+@{
+    Layout = null;
+    ViewData["title"] = "Conta Reprovada";
+}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conta Reprovada</title>
+    <environment include="Development">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+        <link href="~/css/site.css" rel="stylesheet" />
+        <link href="~/css/registro.css" rel="stylesheet" />
+
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+        <link href="~/css/site.min.css" rel="stylesheet" />
+        <link href="~/css/registro.min.css" rel="stylesheet" />
+    </environment>
+</head>
+<body class="white-text red darken-2 container valign-wrapper center-align">
+    <div style="margin: 0 auto;">
+        <h1>Analise de Cadastro</h1>
+        <h5>Olá, @Model ! Sua conta está foi reprovada, contate o suporte técnico.</h5>
+    </div>
+</body>
+</html>

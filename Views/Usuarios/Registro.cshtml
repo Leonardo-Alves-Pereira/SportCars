@@ -1,0 +1,124 @@
+﻿@model SportCar.ViewModels.RegistroViewModel
+@{
+    ViewData["title"] = "Cadastro de Ususarios";
+}
+<div class="container-fluid login-wrapper card wizard-card">
+    <div class="login-box">
+        <h1 class="text-center mb-5"><a href="#" class="text-secondary logo"><img src="~/imagens/img/LEONTEK-300x80.png" alt="Alternate Text" style="width:250px;" /></a></h1>
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-12 login-box-info">
+                <h3 class="mb-4">Registrar Novo Usuario</h3>
+                <p class="mb-4">Venha fazer parte da equipe que mais cresce.</p>
+                <p class="text-center"><a asp-controller="Usuarios" asp-action="Login" class="btn btn-light">Faça Login</a></p>
+            </div>
+            <div class="col-md-6 col-sm-6 col-12 login-box-form p-4">
+                <h3 class="mb-2">Registrar</h3>
+                <small class="text-muted bc-description">Create new account</small>
+
+
+
+                <form form asp-action="Registro" enctype="multipart/form-data" class="mt-2">
+                    <div class="red-text text-darken-4" asp-validation-summary="ModelOnly"></div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i></span>
+                        </div>
+                        <input input asp-for="Nome" id="Nome" type="text" class="validate form-control mt-0" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                        <div class="all">
+                            <span class="validar" asp-validation-for="Nome"></span>
+                            <span class="validar">@ViewData["DuplicateUserName"]</span>
+                        </div>
+                    </div>
+
+
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-address-card"></i></span>
+                        </div>
+                        <input input asp-for="CPF" id="CPF" type="text" class="validate form-control mt-0" placeholder="CPF" aria-label="CPF" aria-describedby="basic-addon1">
+                        <div class="all">
+                            <span class="validar">@ViewData["error"]</span>
+                            <span class="validar" asp-validation-for="CPF"></span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="picture-container">
+                                <div class="picture">
+                                    <img src="~/imagens/img/default-avatar.jpg"
+                                         class="picture-src"
+                                         id="wizardPicturePreview"
+                                         title="" />
+                                    <input asp-for="Foto" type="file" id="foto" />
+                                </div>
+                                <h6>Escolha sua imagem</h6>
+                                <div class="all">
+                                    <span class="validar">@ViewData["foto"]</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-phone"></i></span>
+                        </div>
+                        <input input asp-for="Telefone" id="Telefone" type="text" class="validate form-control mt-0" placeholder="Telefone" aria-label="Telefone" aria-describedby="basic-addon1">
+                        <div class="all">
+                            <span class="validar" asp-validation-for="Telefone"></span>
+                        </div>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-envelope"></i></span>
+                        </div>
+                        <input type="email" asp-for="Email" id="Email" class="validate form-control mt-0" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1">
+                        <div class="all">
+                            <span class="validar" asp-validation-for="Email"></span>
+                            <span class="validar">@ViewData["DuplicateEmail"]</span>
+                        </div>
+                    </div>
+
+
+                    <div class="input-group mb-3 SenhaDigitada">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-lock"></i></span>
+                        </div>
+                        <input type="password" asp-for="Senha" id="Senha" class="validate form-control mt-0" placeholder="Senha" aria-label="Senha" aria-describedby="basic-addon1">
+                        <div class="input-group-prepend">
+                            <a href="" onclick="MostrarSenha('SenhaDigitada')" class="input-group-text senha" id="basic-addon1"><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="all">
+                            <span class="validar" asp-validation-for="Senha"></span>
+                            <span class="validar">@ViewData["PasswordRequiresNonAlphanumeric"]</span>
+                            <span class="validar">@ViewData["PasswordRequiresDigit"]</span>
+                            <span class="validar">@ViewData["PasswordRequiresUpper"]</span>
+                        </div>
+                    </div>
+
+                    <div class="input-group mb-3 SenhaConfirmada">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-lock"></i></span>
+                        </div>
+                        <input type="password" asp-for="SenhaConfirmada" id="SenhaConfirmada" class="validate form-control mt-0" placeholder="Confirmar Senha" aria-label="Confirmar Senha" aria-describedby="basic-addon1">
+                        <div class="input-group-prepend">
+                            <a href="" onclick="MostrarSenha('SenhaConfirmada')" class="input-group-text senha" id="basic-addon1"><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="all">
+                            <span class="validar" asp-validation-for="SenhaConfirmada"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-theme btn-block p-2 mb-1">Register</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

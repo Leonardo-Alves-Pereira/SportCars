@@ -1,0 +1,19 @@
+﻿html, body{
+    height: 100%;
+}
+
+.validar {
+    z-index: 5;
+    max-width: 100%;
+    padding: .25rem .5rem;
+    margin-top: .1rem;
+    font-size: .875rem;
+    line-height: 1.5;
+    color: #fff;
+    background-color: rgba(220,53,69,.9);
+    border-radius: .25rem;
+}
+
+.all{
+    width: 100% !important;
+}

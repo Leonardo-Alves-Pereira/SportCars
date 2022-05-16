@@ -1,0 +1,24 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@using SportCar.BLL.Models;
+@inject SignInManager<Usuario> SignInManager;
+
+@if (SignInManager.IsSignedIn(User))
+{
+
+    <div class="mr-4">
+        <a class="" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img src="~/imagens/img/client-img4.png" alt="Adam" class="rounded-circle" width="40px" height="40px">
+        </a>
+        <div class="dropdown-menu dropdown-menu-right mt-13" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="#"><i class="fa fa-user pr-2"></i> Profile</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#"><i class="fa fa-th-list pr-2"></i> Tasks</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#"><i class="fa fa-book pr-2"></i> Projects</a>
+            <div class="dropdown-divider"></div>
+            <form asp-action="Logout" asp-controller="Usuarios" id="formularioLogout">
+                <a class="dropdown-item" style="cursor: pointer;" onclick="document.getElementById('formularioLogout').submit();"><i class="fa fa-power-off pr-2"></i>Logout</a>
+            </form>
+        </div>
+    </div>
+}
